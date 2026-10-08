@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart City Police</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav>
+    <a href="#">Home</a>
+    <a href="#parking">Parking</a>
+    <a href="#traffic">Traffic</a>
+    <a href="#report">Report</a>
+</nav>
+    <h1>SMART CITY POLICE</h1>
+<h2>Welcome to Smart City Police</h2>
+
+<p>
+    A digital platform for smart parking, traffic enforcement
+    and citizen reporting.
+</p>
+    <p>Traffic, Parking & Citizen Reporting System</p>
+<div class="stats">
+    <div class="stat-box">
+        <h3>25</h3>
+        <p>Parking Spaces</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>12</h3>
+        <p>Reports Today</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>8</h3>
+        <p>Traffic Alerts</p>
+    </div>
+</div>
+<div class="system-status">
+    <p>System Status: <strong>Online</strong></p>
+    <p>Last Updated: <strong>Just now</strong></p>
+</div>
+    <h2>Our Services</h2>
+
+<div class="services">
+
+    <div class="card">
+        <h3>Smart Parking</h3>
+        <p>Find available parking spaces quickly and easily.</p>
+        <button onclick="showParking()">View Parking</button>
+    </div>
+
+    <div class="card">
+        <h3>Traffic Enforcement</h3>
+        <p>Report and monitor traffic violations.</p>
+        <button onclick="showTraffic()">View Traffic</button>
+    </div>
+
+    <div class="card">
+        <h3>Citizen Reporting</h3>
+        <p>Submit reports and track their status.</p>
+        <button onclick="showReport()">Report Now</button>
+    </div>
+</div>
+<div id="parking" style="display: none;">
+    <h2>Smart Parking</h2>
+    <p>Available parking spaces:</p>
+
+    <div class="parking-item">
+        <strong>Main Market Parking</strong>
+        <span id="marketSpaces">12 spaces available</span>
+        <button onclick="bookParking('marketSpaces')">Book Slot</button>
+    </div>
+
+    <div class="parking-item">
+        <strong>Bus Stand Parking</strong>
+        <span id="busSpaces">8 spaces available</span>
+        <button onclick="bookParking('busSpaces')">Book Slot</button>
+    </div>
+
+    <div class="parking-item">
+        <strong>Beach Road Parking</strong>
+        <span id="beachSpaces">5 spaces available</span>
+        <button onclick="bookParking('beachSpaces')">Book Slot</button>
+    </div>
+</div>
+<div id="traffic" style="display: none;">
+    <h2>Traffic Enforcement</h2>
+
+    <p>Report a traffic violation</p>
+
+    <input type="text" id="location" placeholder="Enter location">
+    <br><br>
+
+    <input type="text" id="violation" placeholder="Enter violation">
+<br>
+
+<select id="trafficType">
+    <option value="">Select violation type</option>
+    <option value="Wrong Parking">Wrong Parking</option>
+    <option value="Signal Violation">Signal Violation</option>
+    <option value="Dangerous Driving">Dangerous Driving</option>
+    <option value="Other">Other</option>
+</select>
+    <br><br>
+
+    <button onclick="submitTraffic()">Submit Report</button>
+
+    <p id="trafficMessage"></p>
+</div>
+<div id="report" style="display: none;">
+    <h2>Citizen Reporting</h2>
+
+    <p>Submit a report to the police department</p>
+
+    <input type="text" id="reportLocation" placeholder="Enter location">
+    <br><br>
+
+    <select id="reportType">
+    <option value="">Select report type</option>
+    <option value="Road Issue">Road Issue</option>
+    <option value="Public Safety">Public Safety</option>
+    <option value="Parking Issue">Parking Issue</option>
+    <option value="Street Light">Street Light</option>
+    <option value="Other">Other</option>
+</select>
+    <br><br>
+
+    <textarea id="reportDetails" placeholder="Describe the issue"></textarea>
+    <br><br>
+
+    <button onclick="submitReport()">Submit Report</button>
+
+    <p id="reportMessage"></p>
+<div id="reportStatus"></div>
+<div class="tracking-box">
+    <h3>Track Your Report</h3>
+
+    <input type="text" id="trackReportId" placeholder="Enter Report ID">
+
+    <button onclick="trackReport()">Track Report</button>
+
+    <p id="trackingMessage"></p>
+</div>
+</div>
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

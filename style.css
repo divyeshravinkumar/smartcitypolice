@@ -1,0 +1,228 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    color: #1a237e;
+}
+
+p {
+    font-size: 18px;
+}
+button {
+    background-color: #12355b;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d5a91;
+}
+nav {
+    background-color: #12355b;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 16px;
+}
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: white;
+    width: 250px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #12355b;
+}
+
+.card p {
+    color: #555;
+    line-height: 1.5;
+}
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+#parking,
+#traffic,
+#report {
+    background-color: white;
+    width: 70%;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#parking h2,
+#traffic h2,
+#report h2 {
+    color: #12355b;
+}
+.parking-item {
+    background-color: #f2f5f8;
+    margin: 12px auto;
+    padding: 15px;
+    border-radius: 8px;
+    width: 80%;
+}
+
+.parking-item strong {
+    display: block;
+    color: #12355b;
+    font-size: 18px;
+}
+
+.parking-item span {
+    display: block;
+    margin-top: 5px;
+    color: #555;
+}
+#traffic input,
+#traffic textarea {
+    width: 70%;
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+#traffic textarea {
+    height: 100px;
+    resize: vertical;
+}
+#traffic input,
+#traffic textarea {
+    width: 70%;
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+#traffic textarea {
+    height: 100px;
+    resize: vertical;
+}
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px auto;
+}
+
+.stat-box {
+    background-color: white;
+    width: 180px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.stat-box h3 {
+    color: #12355b;
+    font-size: 28px;
+    margin: 5px;
+}
+
+.stat-box p {
+    margin: 5px;
+}
+.system-status {
+    background-color: white;
+    width: 60%;
+    margin: 20px auto 40px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.system-status p {
+    margin: 8px;
+    color: #555;
+}
+
+.system-status strong {
+    color: #12355b;
+}
+@media (max-width: 700px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    #parking,
+    #traffic,
+    #report {
+        width: 80%;
+    }
+
+    #traffic input,
+    #traffic textarea,
+    #report input,
+    #report textarea {
+        width: 90%;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+#parking .parking-item button {
+    display: block !important;
+    margin: 12px auto 0 !important;
+}
+.parking-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.parking-item strong {
+    display: block;
+}
+
+.parking-item span {
+    display: block;
+    margin-top: 5px;
+}
+
+.parking-item button {
+    display: block;
+    margin-top: 12px;
+}
