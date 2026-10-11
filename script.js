@@ -44,6 +44,21 @@ var reportId = "CR-" + reportNumber;
         "Report ID: " + reportId + "<br>Status: Submitted";
 localStorage.setItem("reportId", reportId);
 localStorage.setItem("reportStatus", "Submitted");
+supabaseClient
+    .from('citizen_reports')
+    .insert([{
+        report_id: reportId,
+        location: location,
+        report_type: type,
+        details: details,
+        status: 'Submitted'
+    }])
+    .then(({ error }) => {
+        if (error) {
+            console.error('Supabase save failed:', error.message);
+            alert('Report could not be saved to the database. Please try again.');
+        }
+    });
 }
 
 function bookParking(spaceId) {
@@ -78,3 +93,11 @@ function trackReport() {
             "Report ID not found.";
     }
 }
+
+/* Supabase connection */
+const SUPABASE_URL = "https://jzkvuaqhigbkqxnlalcq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_vWeX4b7V49o5VMxNfqcj6w_2bLdbQwG";
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
