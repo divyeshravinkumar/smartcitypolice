@@ -36,6 +36,7 @@
     </div>
 
     <h2>Citizen Reports</h2>
+<div id="reportsList"></div>
 <div class="parking-item">
     <strong>CR-4827</strong>
     <span>Location: Main Market</span>
@@ -135,19 +136,47 @@ await loadReports();
 }
 
 async function loadReports() {
+    const reportsList = document.getElementById("reportsList");
+
+    reportsList.textContent = "Loading reports...";
+
     const { data, error } = await supabaseClient
         .from("citizen_reports")
         .select("*")
         .order("created_at", { ascending: false });
 
     if (error) {
-        document.getElementById("loginMessage").textContent =
-            "Could not load reports. Please check database access.";
-        console.error(error);
+        reportsList.textContent = "Could not load reports. Please check the database connection.";
+        console.error("Report loading error:", error);
         return;
     }
 
-    console.log("Citizen reports:", data);
+    if (!data || data.length === 0) {
+        reportsList.textContent = "No citizen reports found.";
+        return;
+    }
+
+    reportsList.innerHTML = "";
+
+    data.forEach((report) => {
+        const card = document.createElement("div");
+        card.className = "parking-item";
+
+        const title = document.createElement("strong");
+        title.textContent = report.id ? "Report #" + report.id : "Citizen Report";
+        card.appendChild(title);
+
+        Object.entries(report).forEach(([key, value]) => {
+            if (key === "id") return;
+
+            const line = document.createElement("p");
+            line.textContent = key.replaceAll("_", " ") + ": " +
+                (value === null ? "" : String(value));
+            card.appendChild(line);
+        });
+
+        reportsList.appendChild(card);
+    });
 }
 
 function markUnderReview() {
