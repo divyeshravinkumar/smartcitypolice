@@ -101,3 +101,105 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+// Smart Cops 360 Citizen Help Assistant
+(function () {
+  const toggle = document.getElementById("chat-toggle");
+  const box = document.getElementById("chat-box");
+  const close = document.getElementById("chat-close");
+  const form = document.getElementById("chat-form");
+  const input = document.getElementById("chat-input");
+  const messages = document.getElementById("chat-messages");
+
+  // Stop safely if the chat HTML is missing
+  if (!toggle || !box || !close || !form || !input || !messages) {
+    console.warn("Citizen Help Assistant: chat elements not found.");
+    return;
+  }
+
+  toggle.addEventListener("click", function () {
+    box.hidden = false;
+    toggle.hidden = true;
+    input.focus();
+  });
+
+  close.addEventListener("click", function () {
+    box.hidden = true;
+    toggle.hidden = false;
+  });
+
+  function addMessage(text, className) {
+    const message = document.createElement("p");
+    message.className = className;
+    message.textContent = text;
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function getReply(message) {
+    const text = message.toLowerCase().trim();
+
+    if (/\b(hi|hello|hey)\b/.test(text)) {
+      return "Hello! Welcome to Smart Cops 360. How can I help you?";
+    }
+
+    if (text.includes("help") || text.includes("features")) {
+      return "I can guide you about parking, traffic information, violation reporting, and complaint status.";
+    }
+
+    if (text.includes("parking") || text.includes("park")) {
+      if (/\b(available|free|empty|vacancy)\b/.test(text)) {
+        return "Open Parking Finder on the website to check the parking information currently provided.";
+      }
+      return "Use Parking Finder to view parking locations and the availability information shown on the website.";
+    }
+
+    if (
+      text.includes("complaint") ||
+      text.includes("report") ||
+      text.includes("violation") ||
+      text.includes("illegal parking")
+    ) {
+      return "Open the Report Violation or Citizen Reporting section, fill in the required details, confirm the location, and submit. Follow the website's instructions for any photo attachment.";
+    }
+
+    if (
+      text.includes("status") ||
+      text.includes("pending") ||
+      text.includes("resolved") ||
+      text.includes("track")
+    ) {
+      return "Open the report tracking section and enter your report ID. The displayed status depends on the report information available to the website.";
+    }
+
+    if (
+      text.includes("traffic") ||
+      text.includes("road") ||
+      text.includes("jam")
+    ) {
+      return "Open the Traffic section to view the traffic information available in this prototype. Please follow official instructions for urgent road hazards.";
+    }
+
+    if (
+      text.includes("police") ||
+      text.includes("dashboard") ||
+      text.includes("admin")
+    ) {
+      return "The admin dashboard is intended for authorized staff to review submitted reports and manage their status.";
+    }
+
+    return "I can help with parking, traffic, violation reporting, and complaint tracking. Try asking about one of these topics.";
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const question = input.value.trim();
+    if (!question) return;
+
+    addMessage(question, "user-message");
+    input.value = "";
+
+    const reply = getReply(question);
+    addMessage(reply, "bot-message");
+  });
+})();
