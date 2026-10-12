@@ -147,6 +147,38 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
+<!-- Smart Cops 360 Citizen Help Assistant -->
+<div id="citizen-chat">
+  <button id="chat-toggle" type="button">
+    💬 Citizen Help
+  </button>
 
+  <div id="chat-box" hidden>
+    <div id="chat-header">
+      <strong>Smart Cops 360 Assistant</strong>
+      <button id="chat-close" type="button" aria-label="Close chat">
+        ×
+      </button>
+    </div>
+
+    <div id="chat-messages" aria-live="polite">
+      <p class="bot-message">
+        Hello! How can I help you today? Ask about parking,
+        traffic violations, complaints, or report status.
+      </p>
+    </div>
+
+    <form id="chat-form">
+      <input
+        id="chat-input"
+        type="text"
+        placeholder="Type your question..."
+        aria-label="Your question"
+        required
+      >
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
 </body>
 </html>
