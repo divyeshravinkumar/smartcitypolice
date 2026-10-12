@@ -505,3 +505,52 @@ select:focus-visible {
         transition-duration: 0.01ms !important;
     }
 }
+/* Pondy Smart Cops 360 — visual enhancements */
+
+body {
+    background-color: #f3f7fc;
+    background-image:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(58, 125, 190, 0.10),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 45%,
+            rgba(214, 169, 75, 0.08),
+            transparent 30%
+        );
+    background-attachment: fixed;
+}
+
+nav {
+    background: linear-gradient(90deg, #081e3d, #123866);
+    border-bottom: 3px solid #e0ad45;
+}
+
+h1 {
+    color: #102e5b;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.card,
+#parking,
+#traffic,
+#report,
+.stat-box,
+.system-status {
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(16, 39, 70, 0.09);
+}
+
+button {
+    background: linear-gradient(135deg, #174f9f, #0d3470);
+    border-radius: 24px;
+}
+
+button:hover {
+    background: #d39d32;
+    color: #102746;
+}
