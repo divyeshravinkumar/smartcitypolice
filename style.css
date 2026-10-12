@@ -554,3 +554,21 @@ button:hover {
     background: #d39d32;
     color: #102746;
 }
+/* Faint Puducherry map watermark */
+body {
+    position: relative;
+    isolation: isolate;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("Puducherry_District_Outline.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: -1;
+}
