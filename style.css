@@ -567,7 +567,7 @@ body::before {
     background-image: url("Puducherry_District_Outline.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     opacity: 0.35;
     pointer-events: none;
     z-index: -1;
